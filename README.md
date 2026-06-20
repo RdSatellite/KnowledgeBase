@@ -1,12 +1,3 @@
 # KnowledgeBase
 
-RAG 服务的文件管理与分片索引 infra 组件。
-
-## 解决的问题
-
-在构建 RAG（检索增强生成）服务时，开发者面临两个重复性难题：
-
-1. **文件管理**：如何导入、规范化、存储多种格式的文档（PDF、Markdown、纯文本等）
-2. **分片索引**：如何将文档切分为合适大小的 chunk，并维护 chunk 与源文档的双向索引关系
-
-KnowledgeBase 将这两个问题抽象为通用契约，提供可插拔的实现，让开发者只需关注自己的 RAG 业务逻辑。
+Independent infra for RAG knowledge base system.

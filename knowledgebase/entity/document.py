@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-
+from datetime import datetime
 
 @dataclass
 class Document:
@@ -7,11 +7,13 @@ class Document:
     kb_id: str              # KnowledgeBase id
 
     title: str              # Title
+    mime_type: str          # Type (pdf, doc, md)
     security_level: int     # Security Level
+    created_at: datetime
+    updated_at: datetime
 
+    uri: str                # OSS uri
 
-# Ignored attributes
-#       mime_type:  oss issue
-#       raw_uri:    oss issue
-#       created_at: rdbms issue
-#       update_at:  rdbms issue
+    @property
+    def filename(self) -> str:
+        return f"{self.title}.{self.mime_type}"

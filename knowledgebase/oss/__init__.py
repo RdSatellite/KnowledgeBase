@@ -1,1 +1,4 @@
-"""Feature: 对象存储抽象。"""
+from .abc import ObjectStore
+
+# Default implementation
+from .impls.local import LocalObjectStore

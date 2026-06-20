@@ -1,0 +1,1 @@
+Hello, KnowledgeBase! This is a test object.
