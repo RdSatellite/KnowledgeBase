@@ -67,8 +67,13 @@ class SqliteRepository(Repository):
         self._conn = sqlite3.connect(db_path)
         self._conn.row_factory = sqlite3.Row
 
-        self._conn.executescript(_DDL_PATH.read_text(encoding="utf-8"))
-        self._conn.commit()
+        table_exists = self._conn.execute(
+            "SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?",
+            ("kb_info",),
+        ).fetchone()
+        if table_exists is None:
+            self._conn.executescript(_DDL_PATH.read_text(encoding="utf-8"))
+            self._conn.commit()
 
     # --- Internal helpers --- #
 

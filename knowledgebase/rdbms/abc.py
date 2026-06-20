@@ -40,7 +40,7 @@ class KbConfig:
     updated_at: datetime | None = None
 
     # NOTE: status field exists in the schema for future soft-delete support
-    # but is not surfaced in the default ABC — see module docstring.
+    # NOTE: but is not surfaced in the default ABC — see module docstring.
 
 
 class Repository(ABC):
