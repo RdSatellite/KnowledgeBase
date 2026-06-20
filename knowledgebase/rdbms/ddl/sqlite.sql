@@ -32,18 +32,18 @@ CREATE TABLE kb_info (
     -- Extern configs, this should be calculated in backend
     ext_config  TEXT,                                             -- Extern configs (JSON stored as TEXT)
 
-    create_at   TEXT DEFAULT (datetime('now')),
-    update_at   TEXT DEFAULT (datetime('now'))
+    created_at   TEXT DEFAULT (datetime('now')),
+    updated_at   TEXT DEFAULT (datetime('now'))
 );
 
 CREATE INDEX idx_kb_info_owner ON kb_info (owner_uid);
 CREATE UNIQUE INDEX uk_kb_name_owner ON kb_info (owner_uid, kb_name);
 
--- Simulate ON UPDATE CURRENT_TIMESTAMP for kb_info.update_at
+-- Simulate ON UPDATE CURRENT_TIMESTAMP for kb_info.updated_at
 CREATE TRIGGER trg_kb_info_update
     AFTER UPDATE ON kb_info
 BEGIN
-    UPDATE kb_info SET update_at = datetime('now') WHERE kb_id = NEW.kb_id;
+    UPDATE kb_info SET updated_at = datetime('now') WHERE kb_id = NEW.kb_id;
 END;
 
 
@@ -68,16 +68,16 @@ CREATE TABLE kb_document (
     segment_count       INTEGER DEFAULT 0,                        -- Segment count
     embedding_status    INTEGER DEFAULT 0,                        -- 0-unfinished 1-ok
 
-    create_at           TEXT DEFAULT (datetime('now')),
-    update_at           TEXT DEFAULT (datetime('now'))
+    created_at           TEXT DEFAULT (datetime('now')),
+    updated_at           TEXT DEFAULT (datetime('now'))
 );
 
 CREATE INDEX idx_kb_document_kb ON kb_document (kb_id);
 CREATE UNIQUE INDEX uk_kb_doc ON kb_document (kb_id, id);
 
--- Simulate ON UPDATE CURRENT_TIMESTAMP for kb_document.update_at
+-- Simulate ON UPDATE CURRENT_TIMESTAMP for kb_document.updated_at
 CREATE TRIGGER trg_kb_document_update
     AFTER UPDATE ON kb_document
 BEGIN
-    UPDATE kb_document SET update_at = datetime('now') WHERE id = NEW.id;
+    UPDATE kb_document SET updated_at = datetime('now') WHERE id = NEW.id;
 END;

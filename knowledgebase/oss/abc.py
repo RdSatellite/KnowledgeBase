@@ -1,3 +1,17 @@
+"""
+OSS Contract
+
+In our system. We use oss to store the source truth.
+
+We have planned a very special feature here:
+    - .any -> .md projection
+This will be useful in our RAG system.
+    
+Some feature can be also added into this component:
+    - Slice
+    - Zip
+"""
+
 from abc import ABC, abstractmethod
 from typing import BinaryIO
 

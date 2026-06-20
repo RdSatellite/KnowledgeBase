@@ -24,8 +24,8 @@ CREATE TABLE kb_info (
     -- Extern configs, this should be calculated in backend
     ext_config  JSON                        COMMENT 'Extern configs',
 
-    create_at   DATETIME DEFAULT CURRENT_TIMESTAMP,
-    update_at   DATETIME ON UPDATE CURRENT_TIMESTAMP,
+    created_at   DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at   DATETIME ON UPDATE CURRENT_TIMESTAMP,
 
     INDEX idx_owner (owner_uid),
     UNIQUE KEY uk_kb_name_owner (owner_uid, kb_name)
@@ -51,8 +51,8 @@ CREATE TABLE kb_document (
     segment_count       INT DEFAULT 0           COMMENT 'Segment count',
     embedding_status    TINYINT DEFAULT 0       COMMENT '0-unfinished 1-ok',
 
-    create_at           DATETIME,
-    update_at           DATETIME,
+    created_at           DATETIME,
+    updated_at           DATETIME,
 
     PRIMARY KEY (id),
     UNIQUE KEY uk_kb_doc (kb_id, id),

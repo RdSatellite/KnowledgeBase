@@ -3,8 +3,8 @@ from datetime import datetime
 
 @dataclass
 class Document:
-    doc_id: str             # Document id
-    kb_id: str              # KnowledgeBase id
+    doc_id: int             # Document id
+    kb_id: int              # KnowledgeBase id
 
     title: str              # Title
     mime_type: str          # Type (pdf, doc, md)
