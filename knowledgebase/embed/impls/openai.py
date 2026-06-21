@@ -4,7 +4,7 @@ from langchain_openai.embeddings import OpenAIEmbeddings
 
 from ..abc import BaseEmbedFunction
 
-class TextEmbedFunction(BaseEmbedFunction):
+class OpenAIEmbedFunction(BaseEmbedFunction):
     def __init__(self):
         self._model = "text-embedding-3-small"
         self._dim = 1536

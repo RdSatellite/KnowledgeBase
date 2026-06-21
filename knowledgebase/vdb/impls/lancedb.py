@@ -81,7 +81,7 @@ class LanceDBVectorStore(BaseVectorStore):
         config = self._ensure_config()
 
         # Ensure vector_dim matches with defined embed_model
-        for row in config.to_list():
+        for row in config.to_arrow().to_pylist():
             if row["embed_model"] == embed_model:
                 if row["vector_dim"] != vector_dim:
                     raise ValueError(
@@ -198,6 +198,7 @@ class LanceDBVectorStore(BaseVectorStore):
             table.search(query_vector)
             .where(f"kb_id = {kb_id}")
             .limit(top_k)
+            .distance_type("cosine")
             .to_list()
         )
         return [
