@@ -58,13 +58,3 @@ CREATE TABLE kb_document (
     UNIQUE KEY uk_kb_doc (kb_id, id),
     INDEX idx_kb (kb_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
--- =============================================================================
--- Production partition plan (for reference, not applied by default):
---
--- ALTER TABLE kb_document PARTITION BY HASH(kb_id) PARTITIONS 32;
---
--- When partitioning is enabled, PRIMARY KEY must include the partition key:
---   ALTER TABLE kb_document DROP PRIMARY KEY, ADD PRIMARY KEY (id, kb_id);
--- =============================================================================

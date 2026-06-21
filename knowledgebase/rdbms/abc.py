@@ -1,14 +1,10 @@
 """
 RDBMS contracts.
 
-We use RDBMS to store document's metadata, carrying business logic. You can read 
-rdbms/README.md to catch the core idea.
+We use RDBMS to store document metadata.  See rdbms/README.md for the core
+idea, design rationale, and production guidance.
 
-Default implementation based on sqlite, but we recommend you use MySQL 8.0+ in Production.
-
-Those design is not enabled by default:
-    - Soft deletion
-    - DB Partition
+Default implementation is SQLite-based; MySQL 8.0+ is recommended for production.
 """
 
 from abc import ABC, abstractmethod
@@ -43,7 +39,7 @@ class KbConfig:
     # NOTE: but is not surfaced in the default ABC — see module docstring.
 
 
-class Repository(ABC):
+class BaseRepository(ABC):
     """
     Persistence contract for knowledge base metadata and documents.
 

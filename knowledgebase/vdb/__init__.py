@@ -1,1 +1,4 @@
-"""Feature: 向量库抽象。"""
+from .abc import BaseVectorStore
+
+# Default implementation
+from .impls.lancedb import LanceDBVectorStore

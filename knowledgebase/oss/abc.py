@@ -16,7 +16,7 @@ from abc import ABC, abstractmethod
 from typing import BinaryIO
 
 
-class ObjectStore(ABC):
+class BaseObjectStore(ABC):
     """
     Interface for URI-Object mapping.
     Responsible for managing storage resources and providing URIs.

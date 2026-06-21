@@ -3,9 +3,9 @@ from io import BytesIO
 from pathlib import Path
 from typing import BinaryIO, override
 
-from ..abc import ObjectStore
+from ..abc import BaseObjectStore
 
-class LocalObjectStore(ObjectStore):
+class LocalObjectStore(BaseObjectStore):
     """
     Local ObjectStore implementation.
 

@@ -3,6 +3,12 @@ from datetime import datetime
 
 @dataclass
 class Document:
+    """
+    Document metadata
+    
+    Managed by RDBMS, and the truth source is stored in OSS.
+    """
+
     doc_id: int             # Document id
     kb_id: int              # KnowledgeBase id
 

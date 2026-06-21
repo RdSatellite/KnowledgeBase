@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Optional
 
 from entity.document import Document
-from rdbms.abc import KbConfig, Repository
+from rdbms.abc import KbConfig, BaseRepository
 
 _DDL_PATH = Path(__file__).resolve().parent.parent / "ddl" / "sqlite.sql"
 
@@ -60,7 +60,7 @@ def _row_to_document(row: sqlite3.Row) -> Document:
 
 # --- Repository --- #
 
-class SqliteRepository(Repository):
+class SqliteRepository(BaseRepository):
     """SQLite-backed Repository — default lightweight implementation."""
 
     def __init__(self, db_path: str) -> None:
